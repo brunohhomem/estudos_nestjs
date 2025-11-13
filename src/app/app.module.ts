@@ -9,4 +9,4 @@ import { ConceitosCliModule } from 'src/conceitos-cli/conceitos-cli.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
