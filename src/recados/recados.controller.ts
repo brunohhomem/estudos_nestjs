@@ -6,23 +6,26 @@ import {
   Param,
   Patch,
   Post,
-} from '@nestjs/common';
+} from '@nestjs/common'
+import { RecadosService } from './recados.service'
 
 @Controller('recados')
 export class RecadosController {
+  constructor(private readonly recadosService: RecadosService) { }
+
   @Get()
   findAll() {
-    return 'retornar tudo';
+    return this.recadosService.hello()
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return `retorna id: ${id}`;
+    return `retorna id: ${id}`
   }
 
   @Post()
   create(@Body() body: any) {
-    return body;
+    return body
   }
 
   @Patch(':id')
@@ -30,11 +33,11 @@ export class RecadosController {
     return {
       id,
       ...body,
-    };
+    }
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return `retorna id: ${id}`;
+    return `retorna id: ${id}`
   }
 }
